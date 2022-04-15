@@ -1,0 +1,18 @@
+-
+  name: Play 1
+  hosts: localhost
+  tasks:
+    - name: Ejecutar comando "date"
+      command: date
+
+    - name: Ejecutar script en servidor
+      script: test_script.sh
+
+    - name: Instalar servicio httpd
+      yum:
+        name: httpd
+        state: present
+    - name: Iniciar servidor web
+      service:
+        name: httpd
+        state: started
